@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
-import Todos from './components/TodoComponents/Todos';
 import Header from './components/LayoutComponents/Header';
+import AddTodo from './components/TodoComponents/AddTodo';
+import Todos from './components/TodoComponents/Todos';
 
 class App extends React.Component {
   state = {
@@ -73,6 +74,7 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <div className="mx-4">
+          <AddTodo />
           <Todos
             todos={this.state.todos}
             markComplete={this.markComplete}

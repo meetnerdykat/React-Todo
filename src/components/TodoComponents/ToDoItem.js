@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Todos.css'
+import './Todos.css';
 import PropTypes from 'prop-types';
 
 export class ToDoItem extends Component {
@@ -31,7 +31,7 @@ export class ToDoItem extends Component {
 
       <div
         style={this.getStyle()}
-        className="my-3 p-2 border-transparent rounded d-flex justify-content-between align-items-center bg-dark" id="small-container"
+        className="my-3 p-2 border-transparent rounded d-flex justify-content-between align-items-center bg-dark small-container"
       >
         <p className="m-0">
           <input
