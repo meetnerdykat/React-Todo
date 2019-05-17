@@ -6,47 +6,23 @@ import AddTodo from './components/TodoComponents/AddTodo';
 import Todos from './components/TodoComponents/Todos';
 import About from './components/Pages/About';
 import uuid from 'uuid';
+// import axios from 'axios';
 
 class App extends React.Component {
   state = {
     todos: [
-      {
-        id: uuid.v4(),
-        title: 'Pray and give thanks',
-        completed: false
-      },
-      {
-        id: uuid.v4(),
-        title: 'Go for a run',
-        completed: false
-      },
-      {
-        id: uuid.v4(),
-        title: 'Shower',
-        completed: false
-      },
-      {
-        id: uuid.v4(),
-        title: 'Make smoothies',
-        completed: false
-      },
-      {
-        id: uuid.v4(),
-        title: 'Take kids to school',
-        completed: false
-      },
-      {
-        id: uuid.v4(),
-        title: 'Go to work',
-        completed: false
-      },
-      {
-        id: uuid.v4(),
-        title: 'Go to school & code',
-        completed: false
-      }
+      { id: uuid.v4(), title: 'Give Thanks', completed: false },
+      { id: uuid.v4(), title: 'Sleep', completed: false },
+      { id: uuid.v4(), title: 'Eat', completed: false },
+      { id: uuid.v4(), title: 'Code', completed: false }
     ]
   };
+
+  // componentDidMount() {
+  //   axios
+  //     .get('https://jsonplaceholder.typicode.com/todos?_limit=10')
+  //     .then(response => this.setState({ todos: response.data }));
+  // }
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
@@ -82,7 +58,6 @@ class App extends React.Component {
   };
 
   render() {
-    console.log(this.state.todos);
     return (
       <Router>
         <div className="App">
@@ -92,19 +67,17 @@ class App extends React.Component {
             path="/"
             render={props => (
               <React.Fragment>
-                <div className="mx-4">
-                  <AddTodo addTodo={this.addTodo} />
-                  <Todos
-                    todos={this.state.todos}
-                    markComplete={this.markComplete}
-                    deleteTodo={this.deleteTodo}
-                  />
-                </div>
+                <AddTodo addTodo={this.addTodo} />
+                <Todos
+                  todos={this.state.todos}
+                  markComplete={this.markComplete}
+                  deleteTodo={this.deleteTodo}
+                />
               </React.Fragment>
             )}
           />
+          <Route path="/about" component={About} />
         </div>
-        <Route path="/about" component={About} />
       </Router>
     );
   }

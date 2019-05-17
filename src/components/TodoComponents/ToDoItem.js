@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Todos.css';
 import PropTypes from 'prop-types';
 
-export class ToDoItem extends Component {
+class ToDoItem extends Component {
   // getStyle = () => {
   //   // check to see if completed is true, if it is, put a line through item
   //   if (this.props.todo.completed) {
@@ -54,7 +54,9 @@ export class ToDoItem extends Component {
 }
 
 ToDoItem.propTypes = {
-  todo: PropTypes.object.isRequired
+  todo: PropTypes.object.isRequired,
+  markComplete: PropTypes.func.isRequired,
+  deleteTodo: PropTypes.func.isRequired
 };
 
 export default ToDoItem;
